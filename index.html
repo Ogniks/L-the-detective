@@ -54,6 +54,38 @@
     html{scroll-behavior:smooth}
   </style>
 </head>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // отключаем перезагрузку страницы
+
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("emailError");
+    const formResult = document.getElementById("formResult");
+
+    const email = emailInput.value.trim();
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Простая проверка корректности email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Скрываем сообщения
+    emailError.style.display = "none";
+    formResult.textContent = "";
+
+    if (!emailRegex.test(email)) {
+        emailError.style.display = "block";
+        return;
+    }
+
+    // Если email корректен — успех
+    formResult.style.color = "#9aa9ff";
+    formResult.textContent = "Успех, L скоро рассмотрит вашу заявку";
+
+    // При желании можно очистить форму:
+    // this.reset();
+});
+</script>
 <body>
   <header>
     <div class="container">
@@ -166,5 +198,24 @@
 xmlns="http://www.w3.org/2000/svg"><path d="M22 5.9c-.6.3-1.3.5-2 .6.7-.4 1.2-1 1.5-1.8-.6.4-1.3.7-2 .9-.6-.7-1.5-1.2-2.5-1.2-1.9 0-3.4 1.8-3 3.6C9.2 8 6.3 6.8 4.4 4.6c-.7 1.2-.4 2.9.8 3.7-.6 0-1.2-.2-1.7-.5 0 1.8 1.2 3.3 3 3.6-.5.2-1 .2-1.6.1.4 1.3 1.6 2.3 3 2.3C7 18 4.3 18.6 2 18.1c2 1.2 4.4 1.9 7 1.9 8.4 0 13-7 12.7-13.3.9-.6 1.6-1.4 2.2-2.3-.8.4-1.6.7-2.5.8z" fill="currentColor"/></svg>
               <span 
             </a>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("emailError");
+    const formResult = document.getElementById("formResult");
+    const email = emailInput.value.trim();
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    emailError.style.display = "none";
+    formResult.textContent = "";
 
-            <a href="https://github.com/" target="_blank" rel="
+    if (!emailRegex.test(email)) {
+        emailError.style.display = "block";
+        return;
+    }
+    formResult.style.color = "#9aa9ff";
+    formResult.textContent = "Успех, L скоро рассмотрит вашу заявку";
+});
+</script>
